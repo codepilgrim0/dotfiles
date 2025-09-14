@@ -1,17 +1,25 @@
-#/bin/bash
+#/bin/zsh
 
 sudo apt-get update
 sudo apt-get upgrade
 
-echo "Installing dependencies"
+echo "Installing dependencies..."
 sudo apt install --yes vim git zsh
 
-echo "Installing Neovim"
+if ! type "/opt/nvim-linux-x86_64/bin/nvim" > /dev/null; then
+echo "Installing Neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm -rf nvim-linux-x86_64.tar.gz
+fi
 
-echo "Installing Oh-my-zsh"
+OH_MY_ZSH_CONFIG_DIR="$HOME/.oh-my-zsh"
+if ! test -d "$OH_MY_ZSH_CONFIG_DIR"; then
+echo "Installing Oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+fi
 
 
+echo "Creating symbolic links..."
+ln .zshrc ~/.zshrc -f
