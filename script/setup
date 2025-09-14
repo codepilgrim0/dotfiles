@@ -3,11 +3,15 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt install vim git zsh
+echo "Installing dependencies"
+sudo apt install --yes vim git zsh
 
-# Install Neovim
+echo "Installing Neovim"
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
+echo "Installing Oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
 
