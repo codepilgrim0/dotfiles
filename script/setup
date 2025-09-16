@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo "Installing dependencies..."
-sudo apt install --yes vim git zsh ripgrep fd-find xclip gcc
+sudo apt install --yes vim git zsh ripgrep fd-find xclip gcc w3m
 
 if ! type "/opt/nvim-linux-x86_64/bin/nvim" > /dev/null; then
 echo "Installing Neovim..."
@@ -25,4 +25,5 @@ echo "Creating symbolic links..."
 current_directory=$(pwd)
 ln -sf $current_directory/.zshrc $HOME/.zshrc
 ln -sf $current_directory/nvim $HOME/.config/nvim
+ln -sf $current_directory/.w3m $HOME/.w3m
 echo "Sym links created."
