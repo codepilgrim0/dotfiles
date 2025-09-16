@@ -6,6 +6,7 @@ sudo apt-get upgrade
 echo "Installing dependencies..."
 sudo apt install --yes vim git zsh ripgrep fd-find xclip gcc w3m tmux
 
+# neovim
 if ! type "/opt/nvim-linux-x86_64/bin/nvim" > /dev/null; then
 echo "Installing Neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
@@ -15,6 +16,7 @@ rm -rf nvim-linux-x86_64.tar.gz
 fi
 
 
+# lazygit
 if ! type "lazygit" > /dev/null; then
 echo "Installing Lazygit..."
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
@@ -25,12 +27,15 @@ rm lazygit.tar.gz
 rm -r lazygit
 fi
 
+# oh-my-zsh
 OH_MY_ZSH_CONFIG_DIR="$HOME/.oh-my-zsh"
 if ! test -d "$OH_MY_ZSH_CONFIG_DIR"; then
 echo "Installing Oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 fi
 
+# tpm, tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Creating symbolic links..."
 current_directory=$(pwd)
