@@ -1,0 +1,4 @@
+#!/bin/bash
+
+read -p "Enter the search term: " search_term
+tmux new-window -n "web:$search_term" "w3m 'https://duckduckgo.com/lite?q=$search_term'"

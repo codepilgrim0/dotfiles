@@ -1,3 +1,8 @@
 https://duckduckgo.com/opensearch_lite_v2.xml
 https://lite.duckduckgo.com/lite/
 http://www.google.com/
+https://lite.duckduckgo.com/lite?q=$search_term
+https://lite.duckduckgo.com/lite?q=this%20is%20a%20searh
+https://lite.duckduckgo.com/lite?q=new%20search
+https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Farticles%2Fclyj4zky4zwo&rut=63a25f2d98d9f1464b75c246ef413ddd0d9d9d802bf1f51ddf5fb1c8a3cabf53
+https://www.bbc.co.uk/news/articles/clyj4zky4zwo
