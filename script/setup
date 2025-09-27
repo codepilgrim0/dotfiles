@@ -5,25 +5,33 @@ sudo apt-get upgrade
 sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find
 
 # Install Neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo rm -rf /opt/nvim-linux-x86_64
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-rm nvim-linux-x86_64.tar.gz
+if ! type nvim; then
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  sudo rm -rf /opt/nvim-linux-x86_64
+  sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+  rm nvim-linux-x86_64.tar.gz
+fi
 
 # Install Lazygit
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
-rm lazygit.tar.gz
+if ! type lazygit; then
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit -D -t /usr/local/bin/
+  rm lazygit.tar.gz
+fi
 
 # Install tree-sitter-cli
 sudo npm install tree-sitter-cli -g
 
 # Install Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Create symlinks
 current_directory=$(pwd)
 ln -sf $current_directory/nvim $HOME/.config/nvim
 ln -sf $current_directory/.zshrc $HOME/.zshrc
+
+zsh
