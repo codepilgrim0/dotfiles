@@ -20,6 +20,10 @@ rm lazygit.tar.gz
 # Install tree-sitter-cli
 sudo npm install tree-sitter-cli -g
 
+# Install Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Create symlinks
 current_directory=$(pwd)
 ln -sf $current_directory/nvim $HOME/.config/nvim
+ln -sf $current_directory/.zshrc $HOME/.zshrc
