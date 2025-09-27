@@ -29,9 +29,14 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install tmux
+sudo apt install -y tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Create symlinks
 current_directory=$(pwd)
 ln -sf $current_directory/nvim $HOME/.config/nvim
 ln -sf $current_directory/.zshrc $HOME/.zshrc
+ln -sf $current_directory/.tmux.conf $HOME/.tmux.conf
 
 zsh
