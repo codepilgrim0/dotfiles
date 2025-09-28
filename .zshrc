@@ -105,5 +105,19 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Tmux
-tmux
+# tmux
+
+# Browser
+alias d='ddgr'
+export BROWSER=w3m
+
+# Windows integration
+win() {
+  if [ -z "$1" ]; then
+    echo "Usage: win <program-name> [..arguments]"
+    return 1
+  fi
+  cmd.exe /c "start $*"
+}
+
 
