@@ -7,7 +7,7 @@ sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find 
 echo "General dependencies installed"
 
 # Install Neovim
-if ! type nvim >dev/null; then
+if ! type nvim; then
   echo "Installing nvim..."
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
   sudo rm -rf /opt/nvim-linux-x86_64
