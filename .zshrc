@@ -108,7 +108,7 @@ fi
 # tmux
 
 # Browser
-alias d='ddgr'
+alias d='ddgr -n=5'
 export BROWSER=w3m
 
 # Windows integration

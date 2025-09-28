@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+read "search_term?Enter the search term: "
+tmux new-window -n "web:$search_term" "zsh -c 'ddgr $search_term'"
+

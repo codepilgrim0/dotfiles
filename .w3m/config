@@ -30,7 +30,10 @@ ignorecase_search 1
 keymap_file keymap
 
 # Open page in the default browser or Opera
-extbrowser cmd.exe /c "start firefox %s"
+encoded_url=$(echo "$url" | jq -sRr @uri)
+extbrowser cmd.exe /c "start firefox $encoded_url --new-tab"
+
+# extbrowser cmd.exe /c "start firefox %s"
 extbrowser2 opera %s
 
 # Append url to $NOTES or the jrnl CLI app
