@@ -50,11 +50,18 @@ if ! type tmux; then
 fi
 
 # Create symlinks
-echo "Creating sym links..."
 current_directory=$(pwd)
+echo "Removing existing config files"
+rm -rf $HOME/.config/nvim
+rm -rf $HOME/.zshrc
+rm -rf $HOME/.tmux.conf
+rm -rf $HOME/.w3m
+
+echo "Creating sym links..."
 ln -sf $current_directory/nvim $HOME/.config/nvim
 ln -sf $current_directory/.zshrc $HOME/.zshrc
 ln -sf $current_directory/.tmux.conf $HOME/.tmux.conf
+ln -sf $current_directory/.w3m $HOME/.w3m
 echo "Sym links created!"
 
 zsh
