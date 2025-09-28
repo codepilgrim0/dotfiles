@@ -1,0 +1,6 @@
+#!/bin/zsh
+# Script that leverages both AI and duckduck go to search for something
+
+read "search_term?Enter the search term: "
+tmux new-window -n "$search_term" "zsh -i -c 'd $search_term'"
+tmux splitw -h "zsh -i -c 'aichat -s temp2 --save-session $search_term; exec zsh'";

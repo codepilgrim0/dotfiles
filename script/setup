@@ -6,6 +6,8 @@ sudo apt-get upgrade
 sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m ddgr tldr python3 python3-pip pipx
 echo "General dependencies installed"
 
+mkdir code
+
 # Install Neovim
 if ! type nvim; then
   echo "Installing nvim..."
@@ -46,6 +48,16 @@ if ! type tmux; then
   echo "Installing tmux..."
   sudo apt install -y tmux
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo "tmux installed!"
+fi
+
+# Install aichat
+if ! type aichat; then
+  echo "Installing aichat..."
+  wget https://github.com/sigoden/aichat/releases/download/v0.30.0/aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
+  tar xvf aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
+  mv aichat ~/code
+  rm aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
   echo "tmux installed!"
 fi
 

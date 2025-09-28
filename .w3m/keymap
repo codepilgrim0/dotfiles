@@ -186,9 +186,9 @@ keymap V    LOAD
 keymap :e   LOAD
 
 # edit buffer (the textual rendering, not the html source) in VIM (or editor)
-keymap M-e  EDIT_SCREEN
+keymap E  EDIT_SCREEN
 # Edit source in VIM (or editor)
-keymap E    EDIT
+# keymap E    EDIT
 
 keymap |    PIPE_BUF
 

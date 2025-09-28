@@ -45,7 +45,8 @@ extbrowser7 url=%s && printf %s "$url" | xargs tmux set-buffer
 extbrowser8 url=%s && printf %s "$url" | xsel && printf %s "$url" | xsel -b &
 
 # Auto enable VIM html file type for editor command
-editor /opt/nvim-linux64/bin/nvim -c "set filetype=html"
+$EDITOR ~/.w3m/config
+editor $EDITOR +$W3M_CURRENT_LINE
 
 # run external viewers/commands in background
 bgextviewer 1

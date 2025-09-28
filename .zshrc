@@ -107,6 +107,10 @@ fi
 # Tmux
 # tmux
 
+# AI
+alias aichat="$HOME/code/aichat"
+alias ai="aichat -s temp2; rm $HOME/.config/aichat/sessions/temp2.yaml"
+
 # Browser
 alias d='ddgr -n=5'
 export BROWSER=w3m
