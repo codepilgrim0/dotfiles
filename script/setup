@@ -3,7 +3,7 @@
 echo "Installing general dependencies..."
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m
+sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m ddgr
 echo "General dependencies installed"
 
 # Install Neovim
