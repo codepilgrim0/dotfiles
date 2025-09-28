@@ -30,8 +30,10 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
 fi
 
 # Install tmux
-sudo apt install -y tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if ! type tmux; then
+  sudo apt install -y tmux
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Create symlinks
 current_directory=$(pwd)
