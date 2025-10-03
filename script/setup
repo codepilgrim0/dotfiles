@@ -3,7 +3,7 @@
 echo "Installing general dependencies..."
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m ddgr tldr python3 python3-pip pipx
+sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m ddgr tldr python3 python3-pip pipx n
 echo "General dependencies installed"
 
 mkdir code
@@ -56,9 +56,19 @@ if ! type aichat; then
   echo "Installing aichat..."
   wget https://github.com/sigoden/aichat/releases/download/v0.30.0/aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
   tar xvf aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
-  mv aichat ~/code
+  mv aichat ~/code/aichat
   rm aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
-  echo "tmux installed!"
+  echo "aichat installed!"
+fi
+
+# Install java dependencies
+if ! type java; then
+  echo "Installing java..."
+  wget https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
+  tar xvf jdk-25_linux-x64_bin.tar.gz
+  sudo mv jdk-25 /opt/
+  rm -rf jdk-25_linux-x64_bin.tar.gz
+  echo "java installed!"
 fi
 
 # Create symlinks

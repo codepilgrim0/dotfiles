@@ -124,4 +124,7 @@ win() {
   cmd.exe /c "start $*"
 }
 
+# Java
+export JAVA_HOME=/opt/jdk-25
+export PATH=$JAVA_HOME/bin:$PATH
 
