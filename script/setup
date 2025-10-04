@@ -71,6 +71,13 @@ if ! type java; then
   echo "java installed!"
 fi
 
+# Install Node version manager
+if ! type n; then
+  echo "Installing n..."
+  npm i -g n
+  echo "n installed!"
+fi
+
 # Create symlinks
 current_directory=$(pwd)
 echo "Removing existing config files"
