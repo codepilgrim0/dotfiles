@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+projects=$(find ~/code/github.com -maxdepth 1 -exec basename {} \;)
+selected_project=$(echo "$projects" | fzf)
+repo_path=$HOME/code/github.com/${selected_project}
+
+if ! tmux has-session -t "${selected_project}"; then
+  tmux new-session -d -c "${repo_path}" -s "${selected_project}" "nvim"
+
+  if [ -f "${repo_path}/package.json" ]; then
+    tmux new-window -c "${repo_path}" -t "${selected_project}" -n "server" "npm run dev"
+    tmux new-window -c "${repo_path}" -t "${selected_project}" -n "tests" "npm run test"
+  fi
+
+fi
+
+tmux switch-client -t "${selected_project}:1"
