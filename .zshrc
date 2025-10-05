@@ -106,6 +106,8 @@ fi
 
 # Tmux
 # tmux
+alias ...="cd ..; cd ..;"
+alias dotfiles="nvim $HOME/code/github.com/dotfiles"
 
 # AI
 alias aichat="$HOME/code/aichat"
