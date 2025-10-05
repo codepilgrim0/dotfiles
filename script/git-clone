@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+read "rep_url?Enter the repository URL: "
+git clone "~/code/github.com/$repo_url"
