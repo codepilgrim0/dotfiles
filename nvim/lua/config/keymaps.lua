@@ -3,3 +3,4 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<leader>.", "<CMD>Oil<CR>", { desc = "Launch Oil" })
 vim.keymap.set("n", "<leader><leader>", "<CMD>Telescope find_files<CR>", { desc = "Find files in project" })
+vim.keymap.set("n", "<leader>fs", "<CMD>w<CR>", { desc = "File Save" })
