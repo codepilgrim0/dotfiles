@@ -106,6 +106,8 @@ fi
 
 # Tmux
 # tmux
+
+alias .="nvim -c ':Oil'"
 alias ...="cd ..; cd ..;"
 alias dotfiles="nvim $HOME/code/github.com/dotfiles"
 
