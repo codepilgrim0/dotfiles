@@ -6,7 +6,7 @@ sudo apt-get upgrade
 sudo apt install -y zsh tree-sitter-cli curl ripgrep fzf gcc npm nodejs fd-find w3m ddgr tldr python3 python3-pip pipx n
 echo "General dependencies installed"
 
-mkdir code
+mkdir $HOME/code
 
 # Install Neovim
 if ! type nvim; then
@@ -62,13 +62,31 @@ if ! type aichat; then
 fi
 
 # Install java dependencies
-if ! type java; then
-  echo "Installing java..."
-  wget https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
-  tar xvf jdk-25_linux-x64_bin.tar.gz
-  sudo mv jdk-25 /opt/
-  rm -rf jdk-25_linux-x64_bin.tar.gz
-  echo "java installed!"
+# if ! type java; then
+echo "Installing java 25..."
+wget https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
+tar xvf jdk-25_linux-x64_bin.tar.gz
+sudo mv jdk-25 /opt/
+rm -rf jdk-25_linux-x64_bin.tar.gz
+echo "java 25 installed!"
+
+echo "Installing java 21..."
+wget https://download.oracle.com/java/21/archive/jdk-21.0.7_linux-x64_bin.tar.gz
+tar xvf jdk-21.0.7_linux-x64_bin.tar.gz
+sudo mv jdk-21.0.7 /opt/
+rm -rf jdk-21.0.7_linux-x64_bin.tar.gz
+echo "java 21 installed!"
+# fi
+
+# Install Java version manager
+if ! type jenv; then
+  echo "Installing jenv..."
+  git clone https://github.com/jenv/jenv.git ~/.jenv
+  echo "jenv installed!"
+
+  echo "setting up java versions on jenv..."
+  jenv add /opt/jdk-21.0.7/
+  jenv add /opt/jdk-25/
 fi
 
 # Install Node version manager

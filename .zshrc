@@ -131,3 +131,8 @@ win() {
 export JAVA_HOME=/opt/jdk-25
 export PATH=$JAVA_HOME/bin:$PATH
 
+# jenv
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(jenv init -)"' >> ~/.zshrc
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
