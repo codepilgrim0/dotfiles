@@ -8,7 +8,6 @@ return {
       "flake8",
       "jdtls",
       "lua-language-server",
-      "lua_ls",
       "shfmt",
       "stylua",
     },
