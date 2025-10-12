@@ -64,21 +64,21 @@ fi
 # Install java dependencies
 sudo apt install maven -y
 
-# if ! type java; then
-echo "Installing java 25..."
-wget https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
-tar xvf jdk-25_linux-x64_bin.tar.gz
-sudo mv jdk-25 /opt/
-rm -rf jdk-25_linux-x64_bin.tar.gz
-echo "java 25 installed!"
+if ! type java; then
+  echo "Installing java 25..."
+  wget https://download.oracle.com/java/25/latest/jdk-25_linux-x64_bin.tar.gz
+  tar xvf jdk-25_linux-x64_bin.tar.gz
+  sudo mv jdk-25 /opt/
+  rm -rf jdk-25_linux-x64_bin.tar.gz
+  echo "java 25 installed!"
 
-echo "Installing java 21..."
-wget https://download.oracle.com/java/21/archive/jdk-21.0.7_linux-x64_bin.tar.gz
-tar xvf jdk-21.0.7_linux-x64_bin.tar.gz
-sudo mv jdk-21.0.7 /opt/
-rm -rf jdk-21.0.7_linux-x64_bin.tar.gz
-echo "java 21 installed!"
-# fi
+  echo "Installing java 21..."
+  wget https://download.oracle.com/java/21/archive/jdk-21.0.7_linux-x64_bin.tar.gz
+  tar xvf jdk-21.0.7_linux-x64_bin.tar.gz
+  sudo mv jdk-21.0.7 /opt/
+  rm -rf jdk-21.0.7_linux-x64_bin.tar.gz
+  echo "java 21 installed!"
+fi
 
 # Install Java version manager
 if ! type jenv; then
